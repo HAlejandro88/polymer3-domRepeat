@@ -11,6 +11,7 @@
     <script type="module">
       import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
       import '@polymer/iron-demo-helpers/demo-snippet';
+      import '@polymer/paper-toast/paper-toast.js';
     </script>
 
     <script type="module" src="../search-component.js"></script>
@@ -26,6 +27,54 @@
       <demo-snippet>
         <template>
           <search-component></search-component>
+          <paper-toast id="toast"></paper-toast>
+          <paper-toast id="toast2"></paper-toast>
+          <script>
+            const element = document.querySelector("search-component");
+            element.employees = [
+              {
+                firstName: "Bruse",
+                lastName: "Wayne",
+                age: 28,
+                image: 'https://images.forbes.com/media/lists/fictional/2011/bruce-wayne_197x282.jpg',
+                status: 'on',
+                herramienta: "traje"
+              },
+              {
+                firstName: "Ras",
+                lastName: "al ghul",
+                age: 150,
+                image:'https://aa1a5178aef33568e9c4-a77ea51e8d8892c1eb8348eb6b3663f6.ssl.cf5.rackcdn.com/p/full/8971fad8-8902-4434-9760-028e6a168a43.jpg',
+                status: 'off',
+                herramienta: "Espada"
+              },
+              {
+                firstName: 'Joker',
+                lastName: '',
+                age: 30,
+                image: "http://mouse.latercera.com/wp-content/uploads/2018/12/joker-7.jpg",
+                status: 'on',
+                herramienta: "barilla"
+              },
+              {
+                firstName: 'Red',
+                lastName: 'Hood',
+                age: 30,
+                image: "https://upload.wikimedia.org/wikipedia/commons/6/68/Red_Hood_Cosplay_1.jpg",
+                status: 'off',
+                herramienta: "pistolas"
+              }
+            ];
+            element.addEventListener('user-selected',event => {
+              const user = event.detail;
+              const toast =  document.querySelector('#toast');
+              toast.text = JSON.stringify({
+                event: event.type,
+                data: user
+              });
+              toast.open();
+            });
+          </script>
         </template>
       </demo-snippet>
     </div>
