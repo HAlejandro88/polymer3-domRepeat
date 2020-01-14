@@ -1,6 +1,6 @@
 # \<search-component\>
 
-
+https://img.shields.io/github/commit-status/HAlejandro88/polymer3-domRepeat/master/ccef45bbf5cd605116e9dcd1ad4e2698b9c646d2?style=plastic
 
 ## Install the Polymer-CLI
 
